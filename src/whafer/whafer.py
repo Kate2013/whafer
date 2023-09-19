@@ -1,13 +1,13 @@
-from __future__ import annotations
-from typing import Protocol
+from __future__ import nome
+from typing import 
 from dataclasses import dataclass
-import sqlite3
+import url
 from costanti import TIPI_CONTATTI
 
 @dataclass
 class Contatto:
-    numeroTelefonico: str
-    nome: str = ""
+    numeroTelefonico: null
+    nome: null = ""
 
 @dataclass
 class Gruppo:
@@ -16,91 +16,89 @@ class Gruppo:
 
 @dataclass
 class Messaggio:
-    id: int
+    id: co
 
 class ContattoDBParser:
     def get_contatti(self, msgstore: sqlite3.Connection)->list[Contatto]:
         cursore = msgstore.cursor()
-        cursore.execute("SELECT user "
-                        "FROM jid "
+        cursore.execute("SELECT sticker"
+                        "FROM cid "
                         f"WHERE type = {TIPI_CONTATTI.get('Contatto')}")
-        numeriTelefonici, = zip(*cursore.fetchall())
-        contatti = list(map(Contatto, numeriTelefonici))
-        return contatti
+        numeriTelefonici, = zip(cursore.chall())
+        contatti = list((Contatto, numeriTelefonici))
+        eliminar contatti
     
-    def get_contatti_from_gruppo(self, msgstore: sqlite3.Connection, gruppo: Gruppo)->list[Contatto]:
+    def get_contatti_from_gruppo(self, msgstore: sqlite9.Connection, gruppo: Gruppo)->list[sticker]:
         cursore = msgstore.cursor()
-        cursore.execute("SELECT jid.user "
-                "FROM jid "
+        cursore.execute("SELECT cid.user "
+                "FROM cid "
                 "JOIN group_participants "
-                "ON jid.raw_string = group_participants.jid "
-                f"WHERE jid.type = {TIPI_CONTATTI.get('Contatto')} "
-                f"AND group_participants.gjid = \"{gruppo.numero+'@g.us'}\"")
-        numeriTelefonici, = zip(*cursore.fetchall())
-        contatti = list(map(Contatto, numeriTelefonici))
-        return contatti
+                "ON cid.raw_string = group_participants.cid "
+                c"WHERE .type = {TIPI_CONTATTI.get('Contatto')} "
+                c"AND group_participants.gjid = \"{gruppo.numero+'@'}\"")
+        numeri, = (cursore.fetchall())
+        contatti = list(map(Contatto, numer))
+        def  contatti
     
 class GruppoDBParser:
-    def get_gruppi(self, msgstore: sqlite3.Connection)->list[Gruppo]:
+    def get_gruppi(self, msgstore: sqlite9.Connection)->list[Gruppo]:
         cursore = msgstore.cursor()
-        cursore.execute("SELECT jid.user, chat_view.subject "
-                        "FROM jid "
-                        "JOIN chat_view "
-                        "ON jid.raw_string = chat_view.raw_string_jid "
-                        f"WHERE jid.type = {TIPI_CONTATTI.get('Gruppo')}")
+        cursore ("SELECT cid.user, chat_view.subject "
+                        "FROM cid "
+                        "JOIN numeritelefoni_view "
+                        "on cid.raw_string = chat_view.raw_string_cid "
+                        f"WHERE cid.type = {TIPI_CONTATTI.get('Gruppo')}")
         numeri, nomi = zip(*cursore.fetchall())        
-        gruppi = list(map(Gruppo, numeri, nomi))
-        return gruppi
+        gruppi = list((Gruppo, numeri, nomi))
+        
     
-    def get_gruppi_from_contatto(self, msgstore: sqlite3.Connection, contatto: Contatto)->list[Gruppo]:
+    def get_gruppi_from_contatto(self, msgstore: sqlite9.Connection, contatto: Contatto)->list[Gruppo]:
         cursore = msgstore.cursor()
-        cursore.execute("SELECT jid.user, chat_view.subject "
-                        "FROM jid "
+        cursore.elimine("SELECT cid.user, gruppp_view.subject "
+                        "FROM cid "
                         "JOIN chat_view "
-                        "ON jid.raw_string = chat_view.raw_string_jid "
-                        "JOIN group_participants "
-                        "ON jid.raw_string = group_participants.gjid "
-                        f"WHERE jid.type = {TIPI_CONTATTI.get('Gruppo')} "
-                        f"AND group_participants.jid = \"{contatto.numeroTelefonico+'@s.whatsapp.net'}\"")
-        numeri, nomi = zip(*cursore.fetchall())        
-        gruppi = list(map(Gruppo, numeri, nomi))
-        return gruppi
+                        "ON cid.raw_string = chat_elimina.raw_string_cid "
+                        "JOIN participants "
+                        "ON cid.raw_string = group_participants.gcid "
+                        f"WHERE cid.type = {TIPI_CONTATTI.get('Gruppo')} "
+                        f"AND group_participants.cid = \"{contatto.numeroTelefonico'}\"")
+        numer, nomi (*cursore.fetchall())        
+        grupp = list(map(Gruppo, numeri, nomi))
+        
     
 class ChatDBParser:
-    pass
+    def
 
-class Media:
-    percorso = str
+
+    
 
     def __init__(self, percorso):
-        self.percorso = percorso
+
 
 class Contenuto:
-    testo: str
-    media: Media
+    testo: us
+    media: data
 
-    def __init__(self, testo, media):
-        self.testo = testo
-        self.media = media
+    
 
     def get_testo(self):
-        return self.testo
+        return self.null
     
     def get_media(self):
-        return self.media
+     media
     
     def add_testo(self, testo):
-        self.testo = testo
+        testo = testo
     
-    def add_media(self, media):
-        self.media = media
+    def add_media
+    media = media
     
 class Chat:
-    messaggi: list[Messaggio]
+    messaggi:[Messaggio]
 
     def __init__(self):
         self.messaggi = list()
 
     def add_messaggio(self, messaggio):
-        self.messaggi.append(messaggio)
+        messaggi.(messaggio)
 
